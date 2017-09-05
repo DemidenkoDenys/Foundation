@@ -18,7 +18,7 @@
   $gutters: $grid-column-gutter
 ) {
   @include -zf-breakpoint-value($gutter, $gutters) {
-    $padding: 10 / 2;
+    $padding: rem-calc($-zf-bp-value) / 2;
 
     padding-right: $padding;
     padding-left: $padding;

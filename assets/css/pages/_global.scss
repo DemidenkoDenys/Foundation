@@ -1,26 +1,44 @@
-/*--------------------------------------------------------------
-# Alignments wp
---------------------------------------------------------------*/
 
-* {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+.margin-bottom-100{
+  margin-bottom: 100px;
 }
 
-.alignleft {
-  display: inline;
-  float: left;
-  margin-right: 1.5em;
+.off-canvas{
+  padding: 70px 30px 30px;
 }
 
-.alignright {
-  display: inline;
-  float: right;
-  margin-left: 1.5em;
+#dropdown-right{
+  width: 300px;
 }
 
-.aligncenter {
-  clear: both;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.show-dropdown{
+  &.left{
+    float: left;
+  }
+  &.right{
+    float: right;
+  }
+}
+
+.dropdowns{
+  text-align: center;
+}
+
+#test-eq{
+  .column .callout{
+    border: 1px solid grey;
+  }
+}
+
+#interchange{
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  @include breakpoint(medium){
+    height: 100vh;
+  }
+  @include breakpoint(medium){
+    height: 50vw;
+  }
 }

@@ -26,7 +26,7 @@
   $wrap: if($wrap, wrap, nowrap);
 
   @if index($behavior, nest) != null {
-    //@include grid-row-nest($gutters);
+    @include grid-row-nest($gutters);
 
     @if index($behavior, collapse) != null {
       margin-right: 0;

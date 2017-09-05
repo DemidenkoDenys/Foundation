@@ -1,10 +1,20 @@
-import '../libs/foundation/entries/foundation';
+// import '../libs/foundation/entries/foundation';
+import 'foundation-sites/dist/js/foundation';
 
 export default {
 	init() {
-		this.accordion();
-		this.dropdown();
-		this.offCanvas();
+
+		$(document).foundation();
+
+        this.offCanvas();
+
+		// this.accordion();
+		// this.dropdown();
+		// this.reveal();
+		// this.tooltips();
+		// this.equalizer();
+		// this.interchange();
+
 	},
 	accordion() {
 		// settings
@@ -29,23 +39,28 @@ export default {
     },
 
 	dropdown(){
-        var $dropdown = new Foundation.Dropdown($('#example-dropdown'));
-        var $dropdown1 = new Foundation.Dropdown($('#example-dropdown-1'), { hover: true, hoverDelay: 2000 });
 
-        $('.show-dropdown').on('click', () => {
-            $dropdown.toggle();
+		let dropdowns = {};
+
+        $('.dropdown-pane').each((i, e) => {
+        	let id = $(e).attr('id');
+            dropdowns[`${id}`] = new Foundation.Dropdown($(e));
 		});
 
+        $('.show-dropdown').on('click', (e) => {
+        	let id = $(e.target).attr('data-toggle');
+            	dropdowns[`${id}`].toggle();
+		});
 
-        $('#example-dropdown').on({
+        $('.dropdown-pane').on({
             'closeme.zf.dropdown': (e) => {
-				console.log(e.target, 'closeme.zf.dropdown');
+				// console.log(e.target, 'closeme.zf.dropdown');
 			},
 			'show.zf.dropdown': (e) => {
-				console.log('show.zf.dropdown');
+				// console.log('show.zf.dropdown');
 			},
 			'hide.zf.dropdown': () => {
-				console.log('hide.zf.dropdown');
+				// console.log('hide.zf.dropdown');
 			}
     	});
 	},
@@ -56,6 +71,47 @@ export default {
 		$('.open-canvas').on('click', (e) => {
             $offCanvas.open();
 		});
+
+		$('.close-off-canvas').on('click', () => {
+            $offCanvas.close();
+		});
+	},
+
+	reveal(){
+        var $reveal = new Foundation.Reveal($('#modal'));
+
+        $('.show-modal').on('click', () => {
+            $reveal.open();
+		});
+
+        $('.close-modal').on('click', () => {
+            $reveal.close();
+		});
+	},
+
+	tooltips(){
+		$('.has-tip').each((i, e) => {
+            let tooltip = new Foundation.Tooltip($(e));
+
+            $(e).on('click', () => {
+                tooltip.show();
+                setTimeout(() => {
+                    tooltip.hide();
+				}, 3000);
+			});
+		});
+	},
+
+    equalizer(){
+        new Foundation.Equalizer($('#test-eq'));
+	},
+
+	interchange(){
+        let interchange = new Foundation.Interchange($('#interchange'));
+
+        $(document).on('replace', 'img', function (e, new_path, original_path) {
+            $(window).trigger('resize');
+        });
 	},
 
 
