@@ -5,6 +5,7 @@
   "author": "Bigdrop <bigdrop@bigdropinc.com>",
   "private": true,
   "dependencies": {
+    "foundation-sites": "^6.4.3",
     "jquery": "latest"
   },
   "devDependencies": {
@@ -45,6 +46,7 @@
     "gulp-webp": "latest",
     "jade": "^1.11.0",
     "jshint-stylish": "latest",
+    "motion-ui": "^1.2.3",
     "run-sequence": "latest",
     "streamify": "latest",
     "vinyl-buffer": "latest",
